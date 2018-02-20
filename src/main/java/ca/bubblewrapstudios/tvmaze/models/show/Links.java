@@ -11,5 +11,7 @@ public class Links {
     private Link previousEpisode;
     @JsonProperty("nextepisode")
     private Link nextEpisode;
+    private Link show;
+    private Link character;
 
 }

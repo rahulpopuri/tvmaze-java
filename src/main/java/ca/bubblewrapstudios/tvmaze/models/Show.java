@@ -2,20 +2,21 @@ package ca.bubblewrapstudios.tvmaze.models;
 
 import ca.bubblewrapstudios.tvmaze.models.show.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Data
 public class Show {
-    protected Links _links;
+    @JsonProperty("_links")
+    protected Links links;
     protected List<CastMember> cast;
-    protected Map<String, String> externals;
+    protected Externals externals;
     protected List<String> genres;
     protected int id;
-    protected Map<String, String> image;
+    protected Image image;
     protected String language;
     protected String name;
     protected Network network;

@@ -21,7 +21,7 @@ public class TvMaze {
     private static TvMaze INSTANCE;
 
     private Retrofit retrofit;
-    private TvMazeAPI tvMazeAPI;
+    private TvMazeApi tvMazeApi;
 
     private TvMaze() {
         ObjectMapper mapper = new ObjectMapper()
@@ -34,7 +34,7 @@ public class TvMaze {
                 .addConverterFactory(JacksonConverterFactory.create(mapper))
                 .build();
 
-        tvMazeAPI = retrofit.create(TvMazeAPI.class);
+        tvMazeApi = retrofit.create(TvMazeApi.class);
     }
 
     public static TvMaze getInstance() {
@@ -45,15 +45,15 @@ public class TvMaze {
     }
 
     public Call<List<Result<Show>>> searchShows(String searchString) {
-        return tvMazeAPI.searchShows(searchString);
+        return tvMazeApi.searchShows(searchString);
     }
 
     public Call<Show> searchSingleShow(String searchString) {
-        return tvMazeAPI.getSingleShow(searchString);
+        return tvMazeApi.getSingleShow(searchString);
     }
 
     public Call<Show> getShowById(int showId) {
-        return tvMazeAPI.getShowById(showId);
+        return tvMazeApi.getShowById(showId);
     }
 
     public Call<List<Episode>> getEpisodes(int showId) {
@@ -61,22 +61,22 @@ public class TvMaze {
     }
 
     public Call<List<Episode>> getEpisodes(int showId, Boolean includeSpecials) {
-        return tvMazeAPI.getEpisodes(showId, includeSpecials);
+        return tvMazeApi.getEpisodes(showId, includeSpecials);
     }
 
     public Call<Episode> getEpisodeByNumber(int showId, int season, int number) {
-        return tvMazeAPI.getEpisodeByNumber(showId, season, number);
+        return tvMazeApi.getEpisodeByNumber(showId, season, number);
     }
 
     public Call<List<Episode>> getEpisodesByDate(int showId, LocalDate date) {
-        return tvMazeAPI.getEpisodesByDate(showId, date);
+        return tvMazeApi.getEpisodesByDate(showId, date);
     }
 
     public Call<List<Season>> getSeasons(int showId) {
-        return tvMazeAPI.getSeasons(showId);
+        return tvMazeApi.getSeasons(showId);
     }
 
     public Call<List<Episode>> getSeasonEpisodes(int seasonId) {
-        return tvMazeAPI.getSeasonEpisodes(seasonId);
+        return tvMazeApi.getSeasonEpisodes(seasonId);
     }
 }

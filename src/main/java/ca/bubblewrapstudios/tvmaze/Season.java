@@ -1,12 +1,12 @@
 package ca.bubblewrapstudios.tvmaze;
 
+import ca.bubblewrapstudios.tvmaze.models.Image;
 import ca.bubblewrapstudios.tvmaze.models.show.Links;
 import ca.bubblewrapstudios.tvmaze.models.show.Network;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.Date;
-import java.util.Map;
 
 @Data
 public class Season {
@@ -19,7 +19,7 @@ public class Season {
     private Date endDate;
     private Network network;
     private String webChannel;
-    private Map<String, String> image;
+    private Image image;
     private String summary;
     @JsonProperty("_links")
     private Links links;
