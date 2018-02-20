@@ -1,5 +1,6 @@
 package ca.bubblewrapstudios.tvmaze;
 
+import ca.bubblewrapstudios.tvmaze.models.Episode;
 import ca.bubblewrapstudios.tvmaze.models.Result;
 import ca.bubblewrapstudios.tvmaze.models.Show;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -46,5 +47,13 @@ public class TvMaze {
 
     public Call<Show> searchSingleShow(String searchString) {
         return tvMazeAPI.getSingleShow(searchString);
+    }
+
+    public Call<Show> getShowById(int showId) {
+        return tvMazeAPI.getShowById(showId);
+    }
+
+    public Call<List<Episode>> getEpisodes(int showId) {
+        return tvMazeAPI.getEpisodes(showId);
     }
 }
