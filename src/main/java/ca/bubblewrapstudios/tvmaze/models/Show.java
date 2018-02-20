@@ -1,9 +1,6 @@
 package ca.bubblewrapstudios.tvmaze.models;
 
-import ca.bubblewrapstudios.tvmaze.models.show.Links;
-import ca.bubblewrapstudios.tvmaze.models.show.Network;
-import ca.bubblewrapstudios.tvmaze.models.show.Rating;
-import ca.bubblewrapstudios.tvmaze.models.show.Schedule;
+import ca.bubblewrapstudios.tvmaze.models.show.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
@@ -32,6 +29,6 @@ public class Show {
     protected String type;
     protected Integer updated;
     protected String url;
-    protected String webChannel;
-    
+    protected WebChannel webChannel;
+
 }

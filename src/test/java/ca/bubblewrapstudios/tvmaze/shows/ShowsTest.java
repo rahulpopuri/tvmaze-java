@@ -11,10 +11,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SearchShowsTest {
+public class ShowsTest {
 
     private final String SINGLE_SHOW = "South Park";
     private final String MULTIPLE_SHOWS = "homeland";
+    private final int SHOW_ID = 1;
 
     @Test
     public void searchSingleShow() {
@@ -30,7 +31,7 @@ public class SearchShowsTest {
             Assert.assertEquals(show.getName(), "South Park");
 
         } catch (IOException e) {
-
+            Assert.fail(e.getMessage());
         }
 
     }
@@ -53,7 +54,23 @@ public class SearchShowsTest {
             Assert.assertTrue(shows.size() > 1);
 
         } catch (IOException e) {
+            Assert.fail(e.getMessage());
+        }
+    }
 
+    @Test
+    public void getShowById() {
+        try {
+            Response<Show> response = TvMaze.getInstance().getShowById(SHOW_ID).execute();
+            assert response.isSuccessful();
+
+            Show show = response.body();
+            Assert.assertNotNull(show);
+
+            Assert.assertEquals(show.getName(), "Under the Dome");
+
+        } catch (IOException e) {
+            Assert.fail(e.getMessage());
         }
     }
 }

@@ -8,6 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface TvMazeAPI {
@@ -22,6 +23,11 @@ public interface TvMazeAPI {
     Call<Show> getShowById(@Path("id") int showId);
 
     @GET("/shows/{id}/episodes")
-    Call<List<Episode>> getEpisodes(@Path("id") int showId);
+    Call<List<Episode>> getEpisodes(@Path("id") int showId, @Query("specials") Boolean specials);
 
+    @GET("/shows/{id}/episodebynumber")
+    Call<Episode> getEpisodeByNumber(@Path("id") int showId, @Query("season") int season, @Query("number") int number);
+
+    @GET("/shows/{id}/episodesbydate")
+    Call<List<Episode>> getEpisodesByDate(@Path("id") int showId, @Query("date") LocalDate date);
 }

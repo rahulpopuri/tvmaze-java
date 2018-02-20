@@ -10,6 +10,7 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class TvMaze {
@@ -54,6 +55,18 @@ public class TvMaze {
     }
 
     public Call<List<Episode>> getEpisodes(int showId) {
-        return tvMazeAPI.getEpisodes(showId);
+        return getEpisodes(showId, null);
+    }
+
+    public Call<List<Episode>> getEpisodes(int showId, Boolean includeSpecials) {
+        return tvMazeAPI.getEpisodes(showId, includeSpecials);
+    }
+
+    public Call<Episode> getEpisodeByNumber(int showId, int season, int number) {
+        return tvMazeAPI.getEpisodeByNumber(showId, season, number);
+    }
+
+    public Call<List<Episode>> getEpisodesByDate(int showId, LocalDate date) {
+        return tvMazeAPI.getEpisodesByDate(showId, date);
     }
 }
