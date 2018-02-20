@@ -8,6 +8,7 @@ import retrofit2.Response;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Month;
 import java.util.List;
 
@@ -41,6 +42,11 @@ public class EpisodesTest {
 
             Episode episode = response.body();
             Assert.assertNotNull(episode);
+
+            // Check some date fields
+            Assert.assertEquals(episode.getAirtime(), LocalTime.of(22, 0));
+            Assert.assertNotNull(episode.getAirdate());
+            Assert.assertNotNull(episode.getAirtime());
 
             Assert.assertEquals(episode.getName(), "Pilot");
 

@@ -5,6 +5,7 @@ import ca.bubblewrapstudios.tvmaze.models.Result;
 import ca.bubblewrapstudios.tvmaze.models.Show;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -25,6 +26,7 @@ public class TvMaze {
     private TvMaze() {
         ObjectMapper mapper = new ObjectMapper()
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
                 .registerModule(new JavaTimeModule());
 
         retrofit = new Retrofit.Builder()
@@ -68,5 +70,13 @@ public class TvMaze {
 
     public Call<List<Episode>> getEpisodesByDate(int showId, LocalDate date) {
         return tvMazeAPI.getEpisodesByDate(showId, date);
+    }
+
+    public Call<List<Season>> getSeasons(int showId) {
+        return tvMazeAPI.getSeasons(showId);
+    }
+
+    public Call<List<Episode>> getSeasonEpisodes(int seasonId) {
+        return tvMazeAPI.getSeasonEpisodes(seasonId);
     }
 }

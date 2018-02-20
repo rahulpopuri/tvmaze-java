@@ -30,4 +30,11 @@ public interface TvMazeAPI {
 
     @GET("/shows/{id}/episodesbydate")
     Call<List<Episode>> getEpisodesByDate(@Path("id") int showId, @Query("date") LocalDate date);
+
+    @GET("/shows/{id}/seasons")
+    Call<List<Season>> getSeasons(@Path("id") int showId);
+
+    @GET("/seasons/{id}/episodes")
+    Call<List<Episode>> getSeasonEpisodes(@Path("id") int seasonId);
+
 }
