@@ -15,7 +15,7 @@ Code for the models is based on https://github.com/RNGuy/TVMaze
 # Usage
 TvMaze is a singleton that you can retrieve with `TvMaze.getInstance()`
 
-To get a list of all supported endpoints, look at [TvMazeApi.java](https://github.com/rahulpopuri/tvmaze-java/blob/master/src/main/java/ca/bubblewrapstudios/tvmaze/TvMazeAPI.java)
+To get a list of all supported endpoints, look at [TvMazeApi.java](https://github.com/rahulpopuri/tvmaze-java/blob/master/src/main/java/ca/bubblewrapstudios/tvmaze/TvMazeApi.java)
 
 - To search for a show by name:
 
