@@ -2,12 +2,12 @@ package ca.bubblewrapstudios.tvmaze;
 
 import ca.bubblewrapstudios.tvmaze.models.*;
 import ca.bubblewrapstudios.tvmaze.models.show.Links;
+import org.joda.time.LocalDate;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 

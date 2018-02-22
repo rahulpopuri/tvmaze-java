@@ -7,12 +7,12 @@ import ca.bubblewrapstudios.tvmaze.models.Show;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
+import org.joda.time.LocalDate;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public class TvMaze {
@@ -29,7 +29,7 @@ public class TvMaze {
         ObjectMapper mapper = new ObjectMapper()
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
-                .registerModule(new JavaTimeModule());
+                .registerModule(new JodaModule());
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(TVMAZE_URL)

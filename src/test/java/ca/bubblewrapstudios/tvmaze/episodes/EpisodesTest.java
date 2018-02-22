@@ -2,14 +2,13 @@ package ca.bubblewrapstudios.tvmaze.episodes;
 
 import ca.bubblewrapstudios.tvmaze.TvMaze;
 import ca.bubblewrapstudios.tvmaze.models.Episode;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalTime;
 import org.junit.Assert;
 import org.junit.Test;
 import retrofit2.Response;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Month;
 import java.util.List;
 
 public class EpisodesTest {
@@ -44,7 +43,7 @@ public class EpisodesTest {
             Assert.assertNotNull(episode);
 
             // Check some date fields
-            Assert.assertEquals(episode.getAirtime(), LocalTime.of(22, 0));
+            Assert.assertEquals(episode.getAirtime(), LocalTime.parse("22:00"));
             Assert.assertNotNull(episode.getAirdate());
             Assert.assertNotNull(episode.getAirtime());
 
@@ -58,7 +57,7 @@ public class EpisodesTest {
     @Test
     public void getEpisodesByDate() {
         try {
-            LocalDate localDate = LocalDate.of(2013, Month.JULY, 1);
+            LocalDate localDate = LocalDate.parse("2013-07-01");
             Response<List<Episode>> response = TvMaze.getInstance().getEpisodesByDate(SHOW_ID, localDate).execute();
             assert response.isSuccessful();
 

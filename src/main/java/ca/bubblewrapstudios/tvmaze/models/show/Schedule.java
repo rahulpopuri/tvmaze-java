@@ -1,8 +1,7 @@
 package ca.bubblewrapstudios.tvmaze.models.show;
 
 import lombok.Data;
-
-import java.time.LocalTime;
+import org.joda.time.LocalTime;
 
 @Data
 public class Schedule {
