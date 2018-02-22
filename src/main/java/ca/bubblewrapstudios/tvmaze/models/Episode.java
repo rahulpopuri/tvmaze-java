@@ -5,16 +5,15 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import java.time.Instant;
 import java.time.LocalTime;
+import java.time.OffsetDateTime;
 import java.util.Date;
 
 @Data
 public class Episode {
     @JsonProperty("_links")
     private Links links;
-
-    private Instant airstamp;
+    private OffsetDateTime airstamp;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date airdate;
     @JsonFormat(pattern = "HH:mm")

@@ -1,6 +1,6 @@
 package ca.bubblewrapstudios.tvmaze.seasons;
 
-import ca.bubblewrapstudios.tvmaze.Season;
+import ca.bubblewrapstudios.tvmaze.models.Season;
 import ca.bubblewrapstudios.tvmaze.TvMaze;
 import ca.bubblewrapstudios.tvmaze.models.Episode;
 import org.junit.Assert;

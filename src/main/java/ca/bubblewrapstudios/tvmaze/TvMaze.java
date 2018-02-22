@@ -2,6 +2,7 @@ package ca.bubblewrapstudios.tvmaze;
 
 import ca.bubblewrapstudios.tvmaze.models.Episode;
 import ca.bubblewrapstudios.tvmaze.models.Result;
+import ca.bubblewrapstudios.tvmaze.models.Season;
 import ca.bubblewrapstudios.tvmaze.models.Show;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,6 +25,7 @@ public class TvMaze {
     private TvMazeApi tvMazeApi;
 
     private TvMaze() {
+
         ObjectMapper mapper = new ObjectMapper()
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)

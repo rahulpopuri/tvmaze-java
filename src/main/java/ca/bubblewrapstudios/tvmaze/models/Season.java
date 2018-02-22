@@ -1,6 +1,5 @@
-package ca.bubblewrapstudios.tvmaze;
+package ca.bubblewrapstudios.tvmaze.models;
 
-import ca.bubblewrapstudios.tvmaze.models.Image;
 import ca.bubblewrapstudios.tvmaze.models.show.Links;
 import ca.bubblewrapstudios.tvmaze.models.show.Network;
 import com.fasterxml.jackson.annotation.JsonProperty;

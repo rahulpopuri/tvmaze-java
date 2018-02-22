@@ -1,6 +1,5 @@
-package ca.bubblewrapstudios.tvmaze;
+package ca.bubblewrapstudios.tvmaze.models;
 
-import ca.bubblewrapstudios.tvmaze.models.Person;
 import lombok.Data;
 
 @Data
