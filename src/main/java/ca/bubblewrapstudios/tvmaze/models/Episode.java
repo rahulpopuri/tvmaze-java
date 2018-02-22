@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.joda.time.DateTime;
-import org.joda.time.LocalTime;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 @Data

@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.joda.time.LocalDate;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -29,7 +30,8 @@ public class TvMaze {
         ObjectMapper mapper = new ObjectMapper()
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
-                .registerModule(new JodaModule());
+                .registerModule(new JodaModule())
+                .registerModule(new JavaTimeModule());
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(TVMAZE_URL)
