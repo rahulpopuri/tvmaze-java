@@ -60,6 +60,14 @@ public class TvMaze {
         return tvMazeApi.getShowById(showId);
     }
 
+    public Call<List<Episode>> getSchedule() {
+        return getSchedule("US", LocalDate.now());
+    }
+
+    public Call<List<Episode>> getSchedule(String countryCode, LocalDate localDate) {
+        return tvMazeApi.getSchedule(countryCode, localDate);
+    }
+
     public Call<List<Episode>> getEpisodes(int showId) {
         return getEpisodes(showId, null);
     }

@@ -46,6 +46,9 @@ public interface TvMazeApi {
     @GET("/shows/{id}/akas")
     Call<List<Aka>> getShowAkas(@Path("id") int showId);
 
+    @GET("/schedule")
+    Call<List<Episode>> getSchedule(@Query("country") String countryCode, @Query("date") LocalDate date);
+
     @GET("/seasons/{id}/episodes")
     Call<List<Episode>> getSeasonEpisodes(@Path("id") int seasonId);
 

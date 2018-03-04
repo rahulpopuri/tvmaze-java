@@ -72,5 +72,22 @@ public class EpisodesTest {
 
     }
 
+    @Test
+    public void getSchedule() {
+        try {
+            LocalDate localDate = LocalDate.parse("2018-03-04");
+            Response<List<Episode>> response = TvMaze.getInstance().getSchedule("US", localDate).execute();
+            assert response.isSuccessful();
+
+            List<Episode> episodes = response.body();
+            Assert.assertNotNull(episodes);
+            Assert.assertTrue(episodes.size() > 10);
+            Assert.assertEquals(episodes.get(0).getId(), 1413857);
+
+        } catch (IOException e) {
+            Assert.fail(e.getMessage());
+        }
+    }
+
 
 }
