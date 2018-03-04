@@ -2,6 +2,7 @@ package ca.bubblewrapstudios.tvmaze.episodes;
 
 import ca.bubblewrapstudios.tvmaze.TvMaze;
 import ca.bubblewrapstudios.tvmaze.models.Episode;
+import ca.bubblewrapstudios.tvmaze.models.ScheduledEpisode;
 import org.joda.time.LocalDate;
 import org.junit.Assert;
 import org.junit.Test;
@@ -76,13 +77,14 @@ public class EpisodesTest {
     public void getSchedule() {
         try {
             LocalDate localDate = LocalDate.parse("2018-03-04");
-            Response<List<Episode>> response = TvMaze.getInstance().getSchedule("US", localDate).execute();
+            Response<List<ScheduledEpisode>> response = TvMaze.getInstance().getSchedule("US", localDate).execute();
             assert response.isSuccessful();
 
-            List<Episode> episodes = response.body();
+            List<ScheduledEpisode> episodes = response.body();
             Assert.assertNotNull(episodes);
             Assert.assertTrue(episodes.size() > 10);
             Assert.assertEquals(episodes.get(0).getId(), 1413857);
+            Assert.assertNotNull(episodes.get(0).getShow());
 
         } catch (IOException e) {
             Assert.fail(e.getMessage());

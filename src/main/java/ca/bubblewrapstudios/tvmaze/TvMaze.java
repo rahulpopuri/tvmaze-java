@@ -1,9 +1,6 @@
 package ca.bubblewrapstudios.tvmaze;
 
-import ca.bubblewrapstudios.tvmaze.models.Episode;
-import ca.bubblewrapstudios.tvmaze.models.Result;
-import ca.bubblewrapstudios.tvmaze.models.Season;
-import ca.bubblewrapstudios.tvmaze.models.Show;
+import ca.bubblewrapstudios.tvmaze.models.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -60,11 +57,11 @@ public class TvMaze {
         return tvMazeApi.getShowById(showId);
     }
 
-    public Call<List<Episode>> getSchedule() {
+    public Call<List<ScheduledEpisode>> getSchedule() {
         return getSchedule("US", LocalDate.now());
     }
 
-    public Call<List<Episode>> getSchedule(String countryCode, LocalDate localDate) {
+    public Call<List<ScheduledEpisode>> getSchedule(String countryCode, LocalDate localDate) {
         return tvMazeApi.getSchedule(countryCode, localDate);
     }
 
