@@ -76,6 +76,23 @@ public class EpisodesTest {
     @Test
     public void getSchedule() {
         try {
+            Response<List<ScheduledEpisode>> response = TvMaze.getInstance().getSchedule().execute();
+            assert response.isSuccessful();
+
+            List<ScheduledEpisode> episodes = response.body();
+            Assert.assertNotNull(episodes);
+            Assert.assertTrue(episodes.size() > 10);
+            Assert.assertNotNull(episodes.get(0));
+            Assert.assertNotNull(episodes.get(0).getShow());
+
+        } catch (IOException e) {
+            Assert.fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void getScheduleForDate() {
+        try {
             LocalDate localDate = LocalDate.parse("2018-03-04");
             Response<List<ScheduledEpisode>> response = TvMaze.getInstance().getSchedule("US", localDate).execute();
             assert response.isSuccessful();
