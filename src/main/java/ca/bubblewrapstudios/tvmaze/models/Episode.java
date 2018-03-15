@@ -25,5 +25,6 @@ public class Episode {
     private Integer runtime;
     private Integer season;
     private String url;
+    private String summary;
 
 }
