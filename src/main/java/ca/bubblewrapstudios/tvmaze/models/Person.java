@@ -6,10 +6,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class Person {
+public class Person implements Serializable {
     @JsonProperty("_links")
     private Links links;
     private int id;

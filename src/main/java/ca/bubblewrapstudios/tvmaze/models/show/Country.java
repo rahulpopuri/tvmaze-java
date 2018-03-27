@@ -2,8 +2,10 @@ package ca.bubblewrapstudios.tvmaze.models.show;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Country {
+public class Country implements Serializable {
     private String code;
     private String name;
     private String timezone;

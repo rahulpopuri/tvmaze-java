@@ -6,11 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.joda.time.DateTime;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Date;
 
 @Data
-public class Episode {
+public class Episode implements Serializable {
     @JsonProperty("_links")
     private Links links;
     private DateTime airstamp;

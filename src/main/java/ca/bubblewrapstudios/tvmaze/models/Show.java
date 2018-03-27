@@ -5,11 +5,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Data
-public class Show {
+public class Show implements Serializable {
     @JsonProperty("_links")
     protected Links links;
     protected List<CastMember> cast;

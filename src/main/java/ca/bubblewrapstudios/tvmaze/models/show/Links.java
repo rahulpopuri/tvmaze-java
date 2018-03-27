@@ -3,8 +3,10 @@ package ca.bubblewrapstudios.tvmaze.models.show;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Links {
+public class Links implements Serializable {
 
     private Link self;
     @JsonProperty("previousepisode")
