@@ -64,7 +64,7 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-jackson:2.3.0'
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.4'
-    compile 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.9.0'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.11.3'
 
     compileOnly 'org.projectlombok:lombok:1.16.6'
 
